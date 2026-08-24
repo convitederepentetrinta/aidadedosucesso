@@ -162,7 +162,7 @@
   }
   .mag-top-row{
     display:flex; justify-content:space-between; align-items:center;
-    font-family: var(--font-ui); font-size: 14px; color: var(--lilac);
+    font-family: var(--font-ui); font-size: 16px; color: var(--lilac);
     letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;
   }
   .mag-masthead{
@@ -216,7 +216,7 @@
     margin-top: 40px;
     font-family: var(--font-ui);
     color: var(--lilac);
-    font-size: 16px;
+    font-size: 19px;
     letter-spacing: .5px;
     animation: bob 1.8s ease-in-out infinite;
   }
@@ -317,7 +317,7 @@
     display:block;
   }
   .clock .lbl{
-    font-family: var(--font-ui); font-size: 13px; letter-spacing:1px;
+    font-family: var(--font-ui); font-size: 15px; letter-spacing:1px;
     text-transform: uppercase; color: var(--lilac);
   }
 
@@ -354,20 +354,20 @@
   }
   .icon-emoji{ font-size: 38px; display:block; margin-bottom: 10px; }
   .icon-card h3{
-    font-family: var(--font-display); font-weight:600; font-size: 22px; color: var(--plum); margin: 4px 0;
+    font-family: var(--font-display); font-weight:600; font-size: 25px; color: var(--plum); margin: 4px 0;
   }
   .icon-card p{
-    font-family: var(--font-ui); font-size: 16px; color: var(--ink); margin:0; line-height:1.6; opacity:.9;
+    font-family: var(--font-ui); font-size: 18px; color: var(--ink); margin:0; line-height:1.6; opacity:.9;
   }
   .icon-card.clickable{ cursor:pointer; border-style: dashed; }
   .icon-card.clickable:hover{ border-color: var(--blush); }
   .icon-card.clickable .maps-hint{
     display:block; margin-top: 8px; font-family: var(--font-marker);
-    font-size: 17px; color: var(--blush);
+    font-size: 20px; color: var(--blush);
   }
   .add-cal-btn{
     margin-top: 12px;
-    font-family: var(--font-ui); font-weight: 500; font-size: 15px;
+    font-family: var(--font-ui); font-weight: 500; font-size: 17px;
     color: var(--plum); background: rgba(141,118,179,.12);
     border: 1px solid rgba(141,118,179,.3); border-radius: 20px;
     padding: 7px 16px; cursor: pointer;
@@ -411,7 +411,7 @@
     font-size: 24px; color: var(--plum); margin: 0 0 6px;
   }
   .modal-sub{
-    font-family: var(--font-ui); font-size: 16px; color: var(--lilac);
+    font-family: var(--font-ui); font-size: 18px; color: var(--lilac);
     margin: 0 0 20px;
   }
   .modal-btn{
@@ -437,10 +437,10 @@
     display:block;
   }
   .look-item .look-cap{
-    font-family: var(--font-ui); font-size: 15px; color: var(--ink);
+    font-family: var(--font-ui); font-size: 17px; color: var(--ink);
     margin-top: 6px; line-height: 1.45;
   }
-  .look-item .look-cap strong{ color: var(--plum); display:block; font-size: 16px; }
+  .look-item .look-cap strong{ color: var(--plum); display:block; font-size: 18px; }
 
   /* =========================================================
      RSVP — envelope
@@ -463,7 +463,7 @@
     font-size: 30px; color: var(--gold-soft);
   }
   .rsvp-box p{
-    font-family: var(--font-marker); font-size: 21px; color: #fff; margin: 6px 0 22px;
+    font-family: var(--font-marker); font-size: 24px; color: #fff; margin: 6px 0 22px;
   }
   .rsvp-btn{
     display:inline-block;
@@ -482,7 +482,7 @@
 
   footer{
     text-align:center; padding: 30px 16px 54px;
-    font-family: var(--font-marker); color: var(--lilac); font-size: 17px;
+    font-family: var(--font-marker); color: var(--lilac); font-size: 20px;
   }
   footer .heart{ color: var(--blush); }
 </style>
@@ -598,13 +598,13 @@
   // ---------- poeira de desejo (fundo) ----------
   const dustWrap = document.getElementById('dust');
   const dustChars = ['✦','✧','⋆','·'];
-  for(let i=0;i<34;i++){
+  for(let i=0;i<70;i++){
     const s = document.createElement('div');
     s.className = 'speck';
     s.textContent = dustChars[Math.floor(Math.random()*dustChars.length)];
     s.style.left = Math.random()*100 + 'vw';
     s.style.top = Math.random()*100 + 'vh';
-    s.style.fontSize = (10 + Math.random()*16) + 'px';
+    s.style.fontSize = (10 + Math.random()*20) + 'px';
     s.style.animationDelay = (Math.random()*3) + 's';
     dustWrap.appendChild(s);
   }
