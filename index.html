@@ -365,6 +365,14 @@
     display:block; margin-top: 8px; font-family: var(--font-marker);
     font-size: 14px; color: var(--blush);
   }
+  .add-cal-btn{
+    margin-top: 12px;
+    font-family: var(--font-ui); font-weight: 500; font-size: 12.5px;
+    color: var(--plum); background: rgba(141,118,179,.12);
+    border: 1px solid rgba(141,118,179,.3); border-radius: 20px;
+    padding: 7px 16px; cursor: pointer;
+  }
+  .add-cal-btn:hover{ background: rgba(141,118,179,.22); }
 
   /* =========================================================
      MODAL (agenda / sugestões de look)
@@ -541,11 +549,11 @@
   <section class="details">
     <div class="section-title">os detalhes do pedido</div>
     <div class="desktop">
-      <div class="icon-card clickable" id="dateCard" role="button" tabindex="0">
+      <div class="icon-card" id="dateCard">
         <span class="icon-emoji">🗓️</span>
         <h3>30 de agosto</h3>
         <p>domingo, a partir das 18h (horário de MS)</p>
-        <span class="maps-hint">↳ toque pra salvar na agenda</span>
+        <button class="add-cal-btn" id="addCalBtn" type="button">+ adicionar à agenda</button>
       </div>
 
       <div class="icon-card clickable" id="locationCard" role="button" tabindex="0">
@@ -711,10 +719,7 @@
     return toICSDate(d);
   }
 
-  document.getElementById('dateCard').addEventListener('click', openCalendarModal);
-  document.getElementById('dateCard').addEventListener('keypress', (e)=>{
-    if(e.key === 'Enter' || e.key === ' ') openCalendarModal();
-  });
+  document.getElementById('addCalBtn').addEventListener('click', openCalendarModal);
 
   function openCalendarModal(){
     const start = partyDate;
