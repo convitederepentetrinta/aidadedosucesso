@@ -512,7 +512,7 @@
     </div>
 
     <div class="hero-thirty">30</div>
-    <p class="hero-name">[NOME DO ANIVERSARIANTE] soprou a vela aos 13 e o pedido... funcionou</p>
+    <p class="hero-name">Amandha soprou a vela aos 13 e o pedido... funcionou</p>
     <div class="scroll-hint">↓ role pra saber onde comemorar ↓</div>
   </header>
 
@@ -543,15 +543,15 @@
     <div class="desktop">
       <div class="icon-card clickable" id="dateCard" role="button" tabindex="0">
         <span class="icon-emoji">🗓️</span>
-        <h3>30/08/2026</h3>
-        <p>[dia da semana], a partir das [HORÁRIO]</p>
+        <h3>30 de agosto</h3>
+        <p>domingo, a partir das 18h (horário de MS)</p>
         <span class="maps-hint">↳ toque pra salvar na agenda</span>
       </div>
 
       <div class="icon-card clickable" id="locationCard" role="button" tabindex="0">
         <span class="icon-emoji">📍</span>
-        <h3>Rua Dom Pedro II, 3777 - Popular Nova, Corumbá -MS</h3>
-        <p>[Endereço completo aqui]</p>
+        <h3>Dom Pedro II</h3>
+        <p>Popular Nova, 3777 — Corumbá, MS</p>
         <span class="maps-hint">↳ toque pra abrir no mapa</span>
       </div>
 
@@ -576,7 +576,7 @@
   <section class="rsvp">
     <div class="rsvp-box">
       <p>confirma que esse desejo continua — vem comemorar com a gente!</p>
-      <a class="rsvp-btn" href="https://wa.me/55[NUMERO]?text=Oi!%20Confirmo%20presença%20na%20festa%20de%2030%20anos!" target="_blank" rel="noopener">CONFIRMAR NO WHATSAPP</a>
+      <a class="rsvp-btn" href="https://wa.me/5567999749630?text=Oi!%20Confirmo%20presença%20na%20festa%20de%2030%20anos!" target="_blank" rel="noopener">CONFIRMAR NO WHATSAPP</a>
     </div>
   </section>
 
@@ -650,7 +650,7 @@
 
   // ---------- localização: abre Google Maps ou Apple Maps ----------
   // EDITE O ENDEREÇO ABAIXO com o local real da festa
-  const enderecoFesta = "[Endereço completo aqui]";
+  const enderecoFesta = "Dom Pedro II, Popular Nova 3777, Corumbá, MS";
 
   document.getElementById('locationCard').addEventListener('click', abrirMapa);
   document.getElementById('locationCard').addEventListener('keypress', (e)=>{
@@ -668,7 +668,7 @@
 
   // ---------- contagem regressiva ----------
   // EDITE A DATA ABAIXO: ano, mês(0-11), dia, hora, minuto
-  const partyDate = new Date(2026, 9, 17, 20, 0, 0); // exemplo: 17/10/2026 às 20h
+  const partyDate = new Date(2026, 7, 30, 18, 0, 0); // 30/08/2026 às 18h, horário de MS
 
   function updateClock(){
     const now = new Date();
@@ -720,8 +720,8 @@
     const start = partyDate;
     const end = new Date(partyDate.getTime() + partyDurationHours*60*60*1000);
     const title = encodeURIComponent('festa de 30 anos — Amandha');
-    const details = encodeURIComponent('o pedido virou realidade! vem comemorar os 30 anos de Amandha.');
-    const location = encodeURIComponent('[Endereço completo aqui]');
+    const details = encodeURIComponent('o pedido virou realidade! vem comemorar os 30 anos da Amandha.');
+    const location = encodeURIComponent('Dom Pedro II, Popular Nova 3777, Corumbá, MS');
     const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${toGCalDate(start)}/${toGCalDate(end)}&details=${details}&location=${location}`;
 
     openModal(`
@@ -743,8 +743,8 @@
         'SUMMARY:festa de 30 anos — Amandha',
         'DTSTART:' + toICSDate(start),
         'DTEND:' + toICSDate(end),
-        'LOCATION:[Endereço completo aqui]',
-        'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos de Amandha.',
+        'LOCATION:Dom Pedro II, Popular Nova 3777, Corumbá, MS',
+        'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos da Amandha.',
         'END:VEVENT','END:VCALENDAR'
       ].join('\r\n');
       const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
