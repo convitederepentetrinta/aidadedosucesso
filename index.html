@@ -543,14 +543,14 @@
     <div class="desktop">
       <div class="icon-card clickable" id="dateCard" role="button" tabindex="0">
         <span class="icon-emoji">🗓️</span>
-        <h3>[DATA]</h3>
+        <h3>30/08/2026</h3>
         <p>[dia da semana], a partir das [HORÁRIO]</p>
         <span class="maps-hint">↳ toque pra salvar na agenda</span>
       </div>
 
       <div class="icon-card clickable" id="locationCard" role="button" tabindex="0">
         <span class="icon-emoji">📍</span>
-        <h3>[LOCAL]</h3>
+        <h3>Rua Dom Pedro II, 3777 - Popular Nova, Corumbá -MS</h3>
         <p>[Endereço completo aqui]</p>
         <span class="maps-hint">↳ toque pra abrir no mapa</span>
       </div>
@@ -719,8 +719,8 @@
   function openCalendarModal(){
     const start = partyDate;
     const end = new Date(partyDate.getTime() + partyDurationHours*60*60*1000);
-    const title = encodeURIComponent('festa de 30 anos — [NOME]');
-    const details = encodeURIComponent('o pedido virou realidade! vem comemorar os 30 anos de [NOME].');
+    const title = encodeURIComponent('festa de 30 anos — Amandha');
+    const details = encodeURIComponent('o pedido virou realidade! vem comemorar os 30 anos de Amandha.');
     const location = encodeURIComponent('[Endereço completo aqui]');
     const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${toGCalDate(start)}/${toGCalDate(end)}&details=${details}&location=${location}`;
 
@@ -740,11 +740,11 @@
         'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//festa30//PT-BR','CALSCALE:GREGORIAN',
         'BEGIN:VEVENT',
         'UID:' + Date.now() + '@festa30',
-        'SUMMARY:festa de 30 anos — [NOME]',
+        'SUMMARY:festa de 30 anos — Amandha',
         'DTSTART:' + toICSDate(start),
         'DTEND:' + toICSDate(end),
         'LOCATION:[Endereço completo aqui]',
-        'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos de [NOME].',
+        'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos de Amandha.',
         'END:VEVENT','END:VCALENDAR'
       ].join('\r\n');
       const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
