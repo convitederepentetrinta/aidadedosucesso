@@ -126,14 +126,14 @@
   @keyframes loading{ to{ width: 100%; } }
 
   .splash-sub{
-    font-family: var(--font-ui); font-size: 14px; color: var(--paper-2);
+    font-family: var(--font-ui); font-size: 17px; color: var(--paper-2);
     opacity:.8; margin-bottom: 20px;
   }
 
   #enter-btn{
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 18px;
     color: var(--ink);
     background: linear-gradient(180deg, var(--gold-soft), var(--gold));
     border: none; padding: 13px 28px; border-radius: 30px;
@@ -162,7 +162,7 @@
   }
   .mag-top-row{
     display:flex; justify-content:space-between; align-items:center;
-    font-family: var(--font-ui); font-size: 11px; color: var(--lilac);
+    font-family: var(--font-ui); font-size: 14px; color: var(--lilac);
     letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;
   }
   .mag-masthead{
@@ -216,7 +216,7 @@
     margin-top: 40px;
     font-family: var(--font-ui);
     color: var(--lilac);
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: .5px;
     animation: bob 1.8s ease-in-out infinite;
   }
@@ -229,7 +229,7 @@
     color: var(--paper);
     font-family: var(--font-ui);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 10px 0;
@@ -317,7 +317,7 @@
     display:block;
   }
   .clock .lbl{
-    font-family: var(--font-ui); font-size: 10px; letter-spacing:1px;
+    font-family: var(--font-ui); font-size: 13px; letter-spacing:1px;
     text-transform: uppercase; color: var(--lilac);
   }
 
@@ -357,17 +357,17 @@
     font-family: var(--font-display); font-weight:600; font-size: 22px; color: var(--plum); margin: 4px 0;
   }
   .icon-card p{
-    font-family: var(--font-ui); font-size: 13.5px; color: var(--ink); margin:0; line-height:1.55; opacity:.85;
+    font-family: var(--font-ui); font-size: 16px; color: var(--ink); margin:0; line-height:1.6; opacity:.9;
   }
   .icon-card.clickable{ cursor:pointer; border-style: dashed; }
   .icon-card.clickable:hover{ border-color: var(--blush); }
   .icon-card.clickable .maps-hint{
     display:block; margin-top: 8px; font-family: var(--font-marker);
-    font-size: 14px; color: var(--blush);
+    font-size: 17px; color: var(--blush);
   }
   .add-cal-btn{
     margin-top: 12px;
-    font-family: var(--font-ui); font-weight: 500; font-size: 12.5px;
+    font-family: var(--font-ui); font-weight: 500; font-size: 15px;
     color: var(--plum); background: rgba(141,118,179,.12);
     border: 1px solid rgba(141,118,179,.3); border-radius: 20px;
     padding: 7px 16px; cursor: pointer;
@@ -411,13 +411,13 @@
     font-size: 24px; color: var(--plum); margin: 0 0 6px;
   }
   .modal-sub{
-    font-family: var(--font-ui); font-size: 13px; color: var(--lilac);
+    font-family: var(--font-ui); font-size: 16px; color: var(--lilac);
     margin: 0 0 20px;
   }
   .modal-btn{
     display:flex; align-items:center; gap: 10px;
     width: 100%; text-align:left;
-    font-family: var(--font-ui); font-weight: 500; font-size: 14px;
+    font-family: var(--font-ui); font-weight: 500; font-size: 17px;
     color: var(--ink); background: rgba(141,118,179,.1);
     border: 1px solid rgba(141,118,179,.25);
     border-radius: 12px; padding: 13px 16px; margin-bottom: 10px;
@@ -437,10 +437,10 @@
     display:block;
   }
   .look-item .look-cap{
-    font-family: var(--font-ui); font-size: 12.5px; color: var(--ink);
-    margin-top: 6px; line-height: 1.4;
+    font-family: var(--font-ui); font-size: 15px; color: var(--ink);
+    margin-top: 6px; line-height: 1.45;
   }
-  .look-item .look-cap strong{ color: var(--plum); display:block; font-size: 13px; }
+  .look-item .look-cap strong{ color: var(--plum); display:block; font-size: 16px; }
 
   /* =========================================================
      RSVP — envelope
@@ -469,7 +469,7 @@
     display:inline-block;
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 14px; letter-spacing: .5px;
+    font-size: 17px; letter-spacing: .5px;
     background: linear-gradient(180deg, var(--gold-soft), var(--gold));
     color: var(--ink);
     padding: 15px 30px; border-radius: 30px;
@@ -752,19 +752,26 @@
         'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos da Amandha.',
         'END:VEVENT','END:VCALENDAR'
       ].join('\r\n');
+      // mesmo método pra todo mundo (iPhone, Android, etc): gera um arquivo
+      // de verdade (blob) em vez de link "data:", que trava em vários
+      // navegadores e principalmente em apps como WhatsApp/Instagram.
       const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      const blob = new Blob([ics], {type: 'text/calendar'});
+      const blobUrl = URL.createObjectURL(blob);
+
       if(isIOSDevice){
-        // no iPhone, abrir o .ics direto na aba faz o Safari mostrar a tela nativa de "Adicionar evento"
-        window.location.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+        // no iPhone, abrir o blob numa aba nova faz o Safari mostrar a
+        // tela nativa de "Adicionar evento"
+        window.open(blobUrl, '_blank');
       } else {
-        const blob = new Blob([ics], {type: 'text/calendar'});
         const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
+        link.href = blobUrl;
         link.download = 'festa-de-30-anos.ics';
         document.body.appendChild(link);
         link.click();
         link.remove();
       }
+      setTimeout(()=> URL.revokeObjectURL(blobUrl), 10000);
     });
   }
 
