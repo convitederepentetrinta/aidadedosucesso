@@ -3,56 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>de repente... 30!</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,0,9..144,500&family=Poppins:wght@400;500;600&family=Homemade+Apple&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Poppins:wght@400;500;600&family=Homemade+Apple&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
+
   :root{
-    --paper: #fbf1e4;
-    --paper-2: #f3e4cf;
-    --ink: #2d1b33;
-    --plum: #4d2f5e;
-    --lilac: #8d76b3;
-    --blush: #f0a8bd;
-    --gold: #e3ac4e;
-    --gold-soft: #f3cf87;
-    --font-display: 'Fraunces', serif;
-    --font-ui: 'Poppins', sans-serif;
-    --font-hand: 'Homemade Apple', cursive;
-    --font-marker: 'Caveat', cursive;
+    --paper:#fbf1e4;
+    --paper-2:#f3e4cf;
+    --ink:#2d1b33;
+    --plum:#4d2f5e;
+    --lilac:#8d76b3;
+    --blush:#f0a8bd;
+    --gold:#e3ac4e;
+    --gold-soft:#f3cf87;
+
+    --font-display:'Fraunces', serif;
+    --font-ui:'Poppins', sans-serif;
+    --font-hand:'Homemade Apple', cursive;
+    --font-marker:'Caveat', cursive;
   }
 
-  *{ box-sizing: border-box; }
+  *{
+    box-sizing:border-box;
+  }
 
   html{
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
   }
 
   body{
     margin:0;
+
     background:
-      radial-gradient(ellipse at 20% 0%, rgba(240,168,189,.25), transparent 55%),
-      radial-gradient(ellipse at 85% 15%, rgba(141,118,179,.25), transparent 50%),
+      radial-gradient(
+        ellipse at 20% 0%,
+        rgba(240,168,189,.25),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 85% 15%,
+        rgba(141,118,179,.25),
+        transparent 50%
+      ),
       var(--paper);
+
     color:var(--ink);
     font-family:var(--font-ui);
     overflow-x:hidden;
     cursor:default;
   }
 
-  @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion:reduce){
+
     *{
       animation-duration:.01ms !important;
       animation-iteration-count:1 !important;
       transition-duration:.01ms !important;
     }
+
   }
 
-  /* =========================
+
+  /* =====================================================
      POEIRA DO FUNDO
-  ========================= */
+  ===================================================== */
 
   #dust{
     position:fixed;
@@ -65,65 +85,110 @@
     position:absolute;
     color:var(--gold);
     opacity:.55;
-    animation:drift 7s ease-in-out infinite;
-    filter:drop-shadow(0 0 3px var(--gold-soft));
+
+    animation:
+      drift 7s ease-in-out infinite;
+
+    filter:
+      drop-shadow(
+        0 0 3px var(--gold-soft)
+      );
   }
 
   @keyframes drift{
+
     0%,100%{
-      transform:translateY(0) rotate(0deg);
+      transform:
+        translateY(0)
+        rotate(0deg);
+
       opacity:.35;
     }
 
     50%{
-      transform:translateY(-22px) rotate(20deg);
+      transform:
+        translateY(-22px)
+        rotate(20deg);
+
       opacity:.8;
     }
+
   }
 
-  /* =========================
+
+  /* =====================================================
      RASTRO DO CURSOR
-  ========================= */
+  ===================================================== */
 
   .sparkle{
     position:fixed;
+
     width:5px;
     height:5px;
+
     border-radius:50%;
+
     background:var(--gold-soft);
-    box-shadow:0 0 8px 2px var(--gold-soft);
+
+    box-shadow:
+      0 0 8px 2px var(--gold-soft);
+
     pointer-events:none;
+
     z-index:9999;
-    animation:sparkleFade .8s ease-out forwards;
+
+    animation:
+      sparkleFade .8s ease-out forwards;
   }
 
   @keyframes sparkleFade{
+
     to{
-      transform:translateY(-22px) scale(0);
+      transform:
+        translateY(-22px)
+        scale(0);
+
       opacity:0;
     }
+
   }
 
-  /* =========================
+
+  /* =====================================================
      SPLASH
-  ========================= */
+  ===================================================== */
 
   #splash{
+
     position:fixed;
     inset:0;
+
     z-index:1000;
+
     background:
-      radial-gradient(circle at 50% 30%, var(--plum), #23142b 75%);
+      radial-gradient(
+        circle at 50% 30%,
+        var(--plum),
+        #23142b 75%
+      );
+
     display:flex;
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     padding:24px;
-    transition:opacity .6s ease, visibility .6s ease;
+
+    transition:
+      opacity .6s ease,
+      visibility .6s ease;
   }
 
   #splash.hidden{
+
     opacity:0;
     visibility:hidden;
     pointer-events:none;
@@ -135,104 +200,171 @@
   }
 
   .wish-star{
+
     font-size:44px;
+
     color:var(--gold-soft);
-    animation:spinStar 3s ease-in-out infinite;
-    filter:drop-shadow(0 0 14px var(--gold-soft));
+
+    animation:
+      spinStar 3s ease-in-out infinite;
+
+    filter:
+      drop-shadow(
+        0 0 14px var(--gold-soft)
+      );
+
     display:block;
+
     margin-bottom:10px;
   }
 
   @keyframes spinStar{
+
     0%,100%{
-      transform:rotate(-8deg) scale(1);
+      transform:
+        rotate(-8deg)
+        scale(1);
     }
 
     50%{
-      transform:rotate(8deg) scale(1.12);
+      transform:
+        rotate(8deg)
+        scale(1.12);
     }
+
   }
 
   .wish-title{
+
     font-family:var(--font-marker);
+
     font-size:24px;
+
     color:var(--paper);
+
     letter-spacing:.5px;
+
     line-height:1.3;
   }
 
   .wish-title .big{
+
     display:block;
+
     font-family:var(--font-display);
+
     font-weight:700;
+
     font-style:italic;
+
     font-size:34px;
+
     color:var(--gold-soft);
+
     margin-top:6px;
   }
 
   .loader-bar{
+
     width:100%;
+
     height:10px;
+
     margin:18px 0;
-    background:rgba(255,255,255,.12);
+
+    background:
+      rgba(255,255,255,.12);
+
     border-radius:20px;
+
     overflow:hidden;
   }
 
   .loader-fill{
+
     height:100%;
+
     width:0%;
+
     border-radius:20px;
-    background:linear-gradient(
-      90deg,
-      var(--blush),
-      var(--gold-soft)
-    );
-    animation:loading 2.4s ease-in-out forwards;
+
+    background:
+      linear-gradient(
+        90deg,
+        var(--blush),
+        var(--gold-soft)
+      );
+
+    animation:
+      loading 2.4s ease-in-out forwards;
   }
 
   @keyframes loading{
+
     to{
       width:100%;
     }
+
   }
 
   .splash-sub{
+
     font-family:var(--font-ui);
+
     font-size:17px;
+
     color:var(--paper-2);
+
     opacity:.8;
+
     margin-bottom:20px;
   }
 
   #enter-btn{
+
     font-family:var(--font-display);
+
     font-weight:600;
+
     font-size:18px;
+
     color:var(--ink);
-    background:linear-gradient(
-      180deg,
-      var(--gold-soft),
-      var(--gold)
-    );
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--gold-soft),
+        var(--gold)
+      );
+
     border:none;
+
     padding:13px 28px;
+
     border-radius:30px;
+
     cursor:pointer;
+
     box-shadow:
       0 4px 0 #a97a22,
       0 0 24px rgba(227,172,78,.4);
+
     letter-spacing:.3px;
-    animation:pulse 1.8s ease-in-out infinite;
+
+    animation:
+      pulse 1.8s ease-in-out infinite;
   }
 
   #enter-btn:active{
+
     transform:translateY(3px);
-    box-shadow:0 1px 0 #a97a22;
+
+    box-shadow:
+      0 1px 0 #a97a22;
   }
 
   @keyframes pulse{
+
     0%,100%{
       transform:scale(1);
     }
@@ -240,135 +372,233 @@
     50%{
       transform:scale(1.04);
     }
+
   }
 
-  /* =========================
-     PRINCIPAL
-  ========================= */
+
+  /* =====================================================
+     MAIN
+  ===================================================== */
 
   main{
     position:relative;
     z-index:1;
   }
 
-  /* =========================
+
+  /* =====================================================
      HERO
-  ========================= */
+  ===================================================== */
 
   header.hero{
+
     min-height:100svh;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:50px 20px 40px;
+
     position:relative;
   }
 
   .mag-cover{
+
     max-width:620px;
+
     margin:0 auto;
+
     padding:0 10px;
   }
 
   .mag-top-row{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     font-family:var(--font-ui);
+
     font-size:16px;
+
     color:var(--lilac);
+
     letter-spacing:1.5px;
+
     text-transform:uppercase;
+
     margin-bottom:10px;
+
     gap:15px;
   }
 
   .mag-masthead{
+
     font-family:var(--font-display);
+
     font-weight:700;
-    font-size:clamp(48px,13vw,108px);
+
+    font-size:
+      clamp(
+        48px,
+        13vw,
+        108px
+      );
+
     color:var(--plum);
+
     letter-spacing:1px;
+
     line-height:.95;
   }
 
   .mag-masthead .accent{
+
     color:var(--blush);
+
     font-style:italic;
+
     font-weight:500;
   }
 
   .mag-coverlines{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:8px 16px;
+
     justify-content:center;
+
     margin:16px 0 26px;
   }
 
   .mag-coverlines span{
+
     font-family:var(--font-marker);
+
     font-size:19px;
+
     color:var(--plum);
-    background:rgba(255,255,255,.55);
+
+    background:
+      rgba(255,255,255,.55);
+
     padding:3px 12px;
+
     border-radius:20px;
+
     transform:rotate(-2deg);
+
     display:inline-block;
-    box-shadow:0 2px 6px rgba(77,47,94,.12);
+
+    box-shadow:
+      0 2px 6px
+      rgba(77,47,94,.12);
   }
 
   .mag-coverlines span:nth-child(2n){
+
     transform:rotate(2deg);
+
     color:var(--blush);
   }
 
   .mag-coverlines span:nth-child(3n){
+
     transform:rotate(-1deg);
+
     color:var(--gold);
   }
 
   .hero-thirty{
+
     font-family:var(--font-display);
+
     font-weight:700;
+
     font-style:italic;
-    font-size:clamp(90px,22vw,220px);
+
+    font-size:
+      clamp(
+        90px,
+        22vw,
+        220px
+      );
+
     line-height:.85;
+
     color:var(--blush);
-    -webkit-text-stroke:2px var(--plum);
+
+    -webkit-text-stroke:
+      2px var(--plum);
+
     margin:6px 0 8px;
-    animation:floaty 4.5s ease-in-out infinite;
+
+    animation:
+      floaty 4.5s ease-in-out infinite;
   }
 
   @keyframes floaty{
+
     0%,100%{
-      transform:translateY(0) rotate(-1deg);
+      transform:
+        translateY(0)
+        rotate(-1deg);
     }
 
     50%{
-      transform:translateY(-10px) rotate(1deg);
+      transform:
+        translateY(-10px)
+        rotate(1deg);
     }
+
   }
 
   .hero-name{
+
     font-family:var(--font-marker);
-    font-size:clamp(20px,4.4vw,28px);
+
+    font-size:
+      clamp(
+        20px,
+        4.4vw,
+        28px
+      );
+
     color:var(--plum);
+
     margin-top:4px;
   }
 
   .scroll-hint{
+
     margin-top:40px;
+
     font-family:var(--font-ui);
+
     color:var(--lilac);
+
     font-size:19px;
+
     letter-spacing:.5px;
-    animation:bob 1.8s ease-in-out infinite;
+
+    animation:
+      bob 1.8s ease-in-out infinite;
   }
 
   @keyframes bob{
+
     0%,100%{
       transform:translateY(0);
     }
@@ -376,526 +606,875 @@
     50%{
       transform:translateY(7px);
     }
+
   }
 
-  /* =========================
+
+  /* =====================================================
      MARQUEE
-  ========================= */
+  ===================================================== */
 
   .marquee{
+
     width:100%;
+
     background:var(--plum);
+
     color:var(--paper);
+
     font-family:var(--font-ui);
+
     font-weight:500;
+
     font-size:17px;
+
     letter-spacing:2px;
+
     text-transform:uppercase;
+
     padding:10px 0;
+
     overflow:hidden;
+
     white-space:nowrap;
   }
 
   .marquee span{
+
     display:inline-block;
+
     padding-left:100%;
-    animation:marquee 20s linear infinite;
+
+    animation:
+      marquee 20s linear infinite;
   }
 
   @keyframes marquee{
+
     to{
       transform:translateX(-100%);
     }
+
   }
 
-  /* =========================
+
+  /* =====================================================
      DIÁRIO
-  ========================= */
+  ===================================================== */
 
   section.diary-section{
+
     padding:90px 16px 70px;
+
     display:flex;
+
     justify-content:center;
   }
 
   .diary-page{
+
     width:100%;
+
     max-width:480px;
+
     background:var(--paper);
+
     background-image:
       repeating-linear-gradient(
         180deg,
         transparent 0 38px,
-        rgba(77,47,94,.08) 38px 39px
+        rgba(77,47,94,.08)
+        38px 39px
       );
-    border:1px solid rgba(77,47,94,.2);
+
+    border:
+      1px solid
+      rgba(77,47,94,.2);
+
     border-radius:4px;
-    box-shadow:0 14px 34px rgba(77,47,94,.15);
+
+    box-shadow:
+      0 14px 34px
+      rgba(77,47,94,.15);
+
     padding:30px 26px 26px;
+
     position:relative;
+
     transform:rotate(-.6deg);
   }
 
   .diary-page::before{
+
     content:'✦';
+
     position:absolute;
+
     top:-16px;
+
     right:26px;
+
     font-size:26px;
+
     color:var(--gold);
   }
 
   .diary-title{
+
     font-family:var(--font-marker);
+
     font-size:22px;
+
     color:var(--blush);
+
     margin-bottom:10px;
   }
 
   .diary-body{
+
     font-family:var(--font-hand);
+
     font-size:26px;
+
     line-height:39px;
+
     color:var(--ink);
+
     min-height:200px;
   }
 
   .diary-body .line{
+
     opacity:0;
+
     transform:translateY(6px);
-    animation:lineIn .5s ease forwards;
+
+    animation:
+      lineIn .5s ease forwards;
   }
 
   @keyframes lineIn{
+
     to{
       opacity:1;
       transform:translateY(0);
     }
+
   }
 
-  /* =========================
-     CONTAGEM
-  ========================= */
+
+  /* =====================================================
+     COUNTDOWN
+  ===================================================== */
 
   section.countdown{
+
     padding:30px 16px 90px;
+
     text-align:center;
   }
 
   .section-title{
+
     font-family:var(--font-display);
+
     font-weight:600;
+
     font-style:italic;
-    font-size:clamp(24px,4.6vw,34px);
+
+    font-size:
+      clamp(
+        24px,
+        4.6vw,
+        34px
+      );
+
     color:var(--plum);
+
     margin-bottom:26px;
   }
 
   .clock{
+
     display:flex;
+
     gap:12px;
+
     justify-content:center;
+
     flex-wrap:wrap;
   }
 
   .clock div{
+
     background:var(--paper);
-    border:1.5px solid var(--lilac);
+
+    border:
+      1.5px solid
+      var(--lilac);
+
     border-radius:14px;
+
     width:88px;
+
     padding:16px 0;
-    box-shadow:0 6px 16px rgba(141,118,179,.2);
+
+    box-shadow:
+      0 6px 16px
+      rgba(141,118,179,.2);
   }
 
   .clock .num{
+
     font-family:var(--font-display);
+
     font-weight:700;
+
     font-size:38px;
+
     color:var(--blush);
+
     display:block;
   }
 
   .clock .lbl{
+
     font-family:var(--font-ui);
+
     font-size:15px;
+
     letter-spacing:1px;
+
     text-transform:uppercase;
+
     color:var(--lilac);
   }
 
-  /* =========================
+
+  /* =====================================================
      DETALHES
-  ========================= */
+  ===================================================== */
 
   section.details{
+
     padding:10px 16px 100px;
   }
 
   .desktop{
+
     max-width:900px;
+
     margin:0 auto;
+
     display:grid;
-    grid-template-columns:repeat(
-      auto-fit,
-      minmax(220px,1fr)
-    );
+
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(220px,1fr)
+      );
+
     gap:26px;
   }
 
   .icon-card{
+
     background:var(--paper);
-    border:1.5px solid rgba(77,47,94,.18);
+
+    border:
+      1.5px solid
+      rgba(77,47,94,.18);
+
     border-radius:14px;
+
     padding:26px 20px;
+
     text-align:center;
+
     position:relative;
-    box-shadow:0 8px 20px rgba(77,47,94,.1);
+
+    box-shadow:
+      0 8px 20px
+      rgba(77,47,94,.1);
+
     transition:
       transform .25s ease,
       box-shadow .25s ease;
   }
 
   .icon-card:hover{
-    transform:translateY(-6px) rotate(-1deg);
-    box-shadow:0 14px 28px rgba(141,118,179,.25);
+
+    transform:
+      translateY(-6px)
+      rotate(-1deg);
+
+    box-shadow:
+      0 14px 28px
+      rgba(141,118,179,.25);
   }
 
   .icon-card::before{
+
     content:'';
+
     position:absolute;
+
     top:-9px;
+
     left:50%;
-    transform:translateX(-50%) rotate(-2deg);
+
+    transform:
+      translateX(-50%)
+      rotate(-2deg);
+
     width:56px;
+
     height:16px;
-    background:rgba(240,168,189,.55);
+
+    background:
+      rgba(240,168,189,.55);
   }
 
   .icon-emoji{
+
     font-size:38px;
+
     display:block;
+
     margin-bottom:10px;
   }
 
   .icon-card h3{
+
     font-family:var(--font-display);
+
     font-weight:600;
+
     font-size:25px;
+
     color:var(--plum);
+
     margin:4px 0;
   }
 
   .icon-card p{
+
     font-family:var(--font-ui);
+
     font-size:18px;
+
     color:var(--ink);
+
     margin:0;
+
     line-height:1.6;
+
     opacity:.9;
   }
 
   .icon-card.clickable{
+
     cursor:pointer;
+
     border-style:dashed;
   }
 
   .icon-card.clickable:hover{
+
     border-color:var(--blush);
   }
 
   .icon-card.clickable .maps-hint{
+
     display:block;
+
     margin-top:8px;
+
     font-family:var(--font-marker);
+
     font-size:20px;
+
     color:var(--blush);
   }
 
   .add-cal-btn{
+
     margin-top:12px;
+
     font-family:var(--font-ui);
+
     font-weight:500;
+
     font-size:17px;
+
     color:var(--plum);
-    background:rgba(141,118,179,.12);
-    border:1px solid rgba(141,118,179,.3);
+
+    background:
+      rgba(141,118,179,.12);
+
+    border:
+      1px solid
+      rgba(141,118,179,.3);
+
     border-radius:20px;
+
     padding:7px 16px;
+
     cursor:pointer;
   }
 
   .add-cal-btn:hover{
-    background:rgba(141,118,179,.22);
+
+    background:
+      rgba(141,118,179,.22);
   }
 
-  /* =========================
+
+  /* =====================================================
      MODAL
-  ========================= */
+  ===================================================== */
 
   .modal-overlay{
+
     position:fixed;
+
     inset:0;
+
     z-index:2000;
-    background:rgba(45,27,51,.55);
+
+    background:
+      rgba(45,27,51,.55);
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     padding:20px;
+
     opacity:0;
+
     visibility:hidden;
+
     transition:
       opacity .25s ease,
       visibility .25s ease;
   }
 
   .modal-overlay.open{
+
     opacity:1;
+
     visibility:visible;
   }
 
   .modal-box{
+
     background:var(--paper);
-    max-width:420px;
+
+    max-width:440px;
+
     width:100%;
-    max-height:80vh;
+
+    max-height:82vh;
+
     overflow-y:auto;
+
     border-radius:18px;
+
     padding:32px 26px 26px;
+
     position:relative;
-    box-shadow:0 20px 50px rgba(45,27,51,.4);
-    transform:scale(.92) translateY(10px);
-    transition:transform .25s ease;
+
+    box-shadow:
+      0 20px 50px
+      rgba(45,27,51,.4);
+
+    transform:
+      scale(.92)
+      translateY(10px);
+
+    transition:
+      transform .25s ease;
   }
 
   .modal-overlay.open .modal-box{
-    transform:scale(1) translateY(0);
+
+    transform:
+      scale(1)
+      translateY(0);
   }
 
   .modal-close{
+
     position:absolute;
+
     top:14px;
+
     right:14px;
+
     width:30px;
+
     height:30px;
+
     border-radius:50%;
+
     border:none;
-    background:rgba(77,47,94,.1);
+
+    background:
+      rgba(77,47,94,.1);
+
     color:var(--plum);
+
     font-size:15px;
+
     cursor:pointer;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
   }
 
   .modal-close:hover{
-    background:rgba(77,47,94,.2);
+
+    background:
+      rgba(77,47,94,.2);
   }
 
   .modal-title{
+
     font-family:var(--font-display);
+
     font-weight:600;
+
     font-style:italic;
-    font-size:24px;
+
+    font-size:26px;
+
     color:var(--plum);
+
     margin:0 0 6px;
   }
 
   .modal-sub{
+
     font-family:var(--font-ui);
-    font-size:18px;
+
+    font-size:17px;
+
     color:var(--lilac);
+
     margin:0 0 20px;
+
+    line-height:1.6;
   }
 
   .modal-btn{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     width:100%;
+
     text-align:left;
+
     font-family:var(--font-ui);
+
     font-weight:500;
+
     font-size:17px;
+
     color:var(--ink);
-    background:rgba(141,118,179,.1);
-    border:1px solid rgba(141,118,179,.25);
+
+    background:
+      rgba(141,118,179,.1);
+
+    border:
+      1px solid
+      rgba(141,118,179,.25);
+
     border-radius:12px;
+
     padding:13px 16px;
+
     margin-bottom:10px;
+
     cursor:pointer;
+
     text-decoration:none;
   }
 
   .modal-btn:hover{
-    background:rgba(141,118,179,.2);
+
+    background:
+      rgba(141,118,179,.2);
   }
 
   .modal-btn .emoji{
+
     font-size:18px;
   }
 
-  /* =========================
+
+  /* =====================================================
      RSVP
-  ========================= */
+  ===================================================== */
 
   section.rsvp{
+
     padding:10px 16px 110px;
+
     text-align:center;
   }
 
   .rsvp-box{
+
     max-width:460px;
+
     margin:0 auto;
-    background:linear-gradient(
-      160deg,
-      var(--plum),
-      var(--lilac)
-    );
+
+    background:
+      linear-gradient(
+        160deg,
+        var(--plum),
+        var(--lilac)
+      );
+
     border-radius:20px;
+
     padding:38px 26px;
-    box-shadow:0 16px 34px rgba(77,47,94,.3);
+
+    box-shadow:
+      0 16px 34px
+      rgba(77,47,94,.3);
+
     position:relative;
   }
 
   .rsvp-box::before{
+
     content:'✦';
+
     position:absolute;
+
     top:-18px;
+
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+      translateX(-50%);
+
     font-size:30px;
+
     color:var(--gold-soft);
   }
 
   .rsvp-box p{
+
     font-family:var(--font-marker);
+
     font-size:24px;
+
     color:#fff;
+
     margin:6px 0 22px;
   }
 
   .rsvp-btn{
+
     display:inline-block;
+
     font-family:var(--font-display);
+
     font-weight:600;
+
     font-size:17px;
+
     letter-spacing:.5px;
-    background:linear-gradient(
-      180deg,
-      var(--gold-soft),
-      var(--gold)
-    );
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--gold-soft),
+        var(--gold)
+      );
+
     color:var(--ink);
+
     padding:15px 30px;
+
     border-radius:30px;
+
     text-decoration:none;
-    box-shadow:0 5px 0 #a97a22;
-    transition:transform .15s ease;
+
+    box-shadow:
+      0 5px 0 #a97a22;
+
+    transition:
+      transform .15s ease;
   }
 
   .rsvp-btn:hover{
-    transform:translateY(-2px);
+
+    transform:
+      translateY(-2px);
   }
 
   .rsvp-btn:active{
-    transform:translateY(3px);
-    box-shadow:0 1px 0 #a97a22;
+
+    transform:
+      translateY(3px);
+
+    box-shadow:
+      0 1px 0 #a97a22;
   }
 
+
+  /* =====================================================
+     FOOTER
+  ===================================================== */
+
   footer{
+
     text-align:center;
+
     padding:30px 16px 54px;
+
     font-family:var(--font-marker);
+
     color:var(--lilac);
+
     font-size:20px;
   }
 
   footer .heart{
+
     color:var(--blush);
   }
 
-  /* =========================
+
+  /* =====================================================
      RESPONSIVO
-  ========================= */
+  ===================================================== */
 
   @media(max-width:600px){
 
     .mag-top-row{
+
       font-size:11px;
+
       letter-spacing:1px;
     }
 
     .mag-coverlines span{
+
       font-size:17px;
     }
 
     .hero-name{
+
       padding:0 10px;
     }
 
     .scroll-hint{
+
       font-size:16px;
     }
 
     .clock{
+
       gap:8px;
     }
 
     .clock div{
+
       width:75px;
+
       padding:13px 0;
     }
 
     .clock .num{
+
       font-size:32px;
     }
 
     .clock .lbl{
+
       font-size:12px;
     }
 
     .desktop{
+
       grid-template-columns:1fr;
     }
 
     .diary-body{
+
       font-size:22px;
+
       line-height:36px;
     }
 
     .rsvp-btn{
+
       font-size:15px;
+
       padding:14px 20px;
     }
+
+    .modal-box{
+
+      padding:
+        30px 20px 22px;
+    }
+
   }
+
 </style>
 </head>
 
 <body>
 
+
+<!-- =====================================================
+     POEIRA
+===================================================== -->
+
 <div id="dust"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      SPLASH
-========================= -->
+===================================================== -->
 
 <div id="splash">
 
   <div class="wish-box">
 
-    <span class="wish-star">✦</span>
+    <span class="wish-star">
+      ✦
+    </span>
 
     <div class="wish-title">
+
       eu quero ter 30 anos...
 
       <span class="big">
         trinta é a idade do sucesso
       </span>
+
     </div>
 
     <div class="loader-bar">
+
       <div class="loader-fill"></div>
+
     </div>
 
     <div class="splash-sub">
@@ -910,997 +1489,1388 @@
 
 </div>
 
+
 <main>
 
-  <!-- =========================
-       HERO
-  ========================= -->
 
-  <header class="hero">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-    <div class="mag-cover">
+<header class="hero">
 
-      <div class="mag-top-row">
-        <span>edição nº 30 · o desejo</span>
-        <span>presença obrigatória</span>
-      </div>
+  <div class="mag-cover">
 
-      <div class="mag-masthead">
-        de repente<span class="accent">.</span>
-      </div>
+    <div class="mag-top-row">
 
-      <div class="mag-coverlines">
+      <span>
+        edição nº 30 · o desejo
+      </span>
 
-        <span>
-          ✦ ela pediu pra crescer rápido — e cresceu
-        </span>
-
-        <span>
-          ✦ dezessete anos sumiram numa piscada
-        </span>
-
-        <span>
-          ✦ e agora a festa volta direto pros anos 2000
-        </span>
-
-      </div>
+      <span>
+        presença obrigatória
+      </span>
 
     </div>
 
-    <div class="hero-thirty">
-      30
+
+    <div class="mag-masthead">
+
+      de repente<span class="accent">.</span>
+
     </div>
 
-    <p class="hero-name">
-      Amandha soprou a vela aos 13 e o pedido... funcionou
-    </p>
 
-    <div class="scroll-hint">
-      ↓ role pra saber onde comemorar ↓
+    <div class="mag-coverlines">
+
+      <span>
+        ✦ ela pediu pra crescer rápido — e cresceu
+      </span>
+
+      <span>
+        ✦ dezessete anos sumiram numa piscada
+      </span>
+
+      <span>
+        ✦ e agora a festa volta direto pros anos 2000
+      </span>
+
     </div>
-
-  </header>
-
-  <!-- =========================
-       MARQUEE
-  ========================= -->
-
-  <div class="marquee">
-
-    <span>
-      ✦ treze virou trinta
-      ✦ o desejo se realizou
-      ✦ vem celebrar com a gente
-      ✦ anos 2000 de volta
-      ✦ treze virou trinta
-      ✦ o desejo se realizou
-      ✦ vem celebrar com a gente
-      ✦ anos 2000 de volta
-    </span>
 
   </div>
 
-  <!-- =========================
-       DIÁRIO
-  ========================= -->
 
-  <section class="diary-section">
+  <div class="hero-thirty">
+    30
+  </div>
 
-    <div class="diary-page">
 
-      <div class="diary-title">
-        querido diário ✦
-      </div>
+  <p class="hero-name">
+    Amandha soprou a vela aos 13 e o pedido... funcionou
+  </p>
 
-      <div
-        class="diary-body"
-        id="diaryBody"
-      ></div>
 
+  <div class="scroll-hint">
+    ↓ role pra saber onde comemorar ↓
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
+<div class="marquee">
+
+  <span>
+
+    ✦ treze virou trinta
+    ✦ o desejo se realizou
+    ✦ vem celebrar com a gente
+    ✦ anos 2000 de volta
+    ✦ treze virou trinta
+    ✦ o desejo se realizou
+    ✦ vem celebrar com a gente
+    ✦ anos 2000 de volta
+
+  </span>
+
+</div>
+
+
+<!-- =====================================================
+     DIÁRIO
+===================================================== -->
+
+<section class="diary-section">
+
+  <div class="diary-page">
+
+    <div class="diary-title">
+      querido diário ✦
     </div>
 
-  </section>
+    <div
+      class="diary-body"
+      id="diaryBody"
+    ></div>
 
-  <!-- =========================
-       COUNTDOWN
-  ========================= -->
+  </div>
 
-  <section class="countdown">
+</section>
 
-    <div class="section-title">
-      contagem pro grande dia
-    </div>
 
-    <div class="clock" id="clock">
+<!-- =====================================================
+     CONTAGEM REGRESSIVA
+===================================================== -->
 
-      <div>
-        <span class="num" id="dd">00</span>
-        <span class="lbl">dias</span>
-      </div>
+<section class="countdown">
 
-      <div>
-        <span class="num" id="hh">00</span>
-        <span class="lbl">horas</span>
-      </div>
+  <div class="section-title">
+    contagem pro grande dia
+  </div>
 
-      <div>
-        <span class="num" id="mm">00</span>
-        <span class="lbl">min</span>
-      </div>
-
-      <div>
-        <span class="num" id="ss">00</span>
-        <span class="lbl">seg</span>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =========================
-       DETALHES
-  ========================= -->
-
-  <section class="details">
-
-    <div class="section-title">
-      os detalhes do pedido
-    </div>
-
-    <div class="desktop">
-
-      <!-- DATA -->
-
-      <div class="icon-card" id="dateCard">
-
-        <span class="icon-emoji">
-          🗓️
-        </span>
-
-        <h3>
-          05 de setembro
-        </h3>
-
-        <p>
-          sábado, a partir das 19h
-          (horário de MS)
-        </p>
-
-        <button
-          class="add-cal-btn"
-          id="addCalBtn"
-          type="button"
-        >
-          + adicionar à agenda
-        </button>
-
-      </div>
-
-      <!-- LOCAL -->
-
-      <div
-        class="icon-card clickable"
-        id="locationCard"
-        role="button"
-        tabindex="0"
-      >
-
-        <span class="icon-emoji">
-          📍
-        </span>
-
-        <h3>
-          Dom Pedro II
-        </h3>
-
-        <p>
-          Popular Nova, 3777 —
-          Corumbá, MS
-        </p>
-
-        <span class="maps-hint">
-          ↳ toque pra abrir no mapa
-        </span>
-
-      </div>
-
-      <!-- DRESS CODE -->
-
-      <div
-        class="icon-card clickable"
-        id="dressCard"
-        role="button"
-        tabindex="0"
-      >
-
-        <span class="icon-emoji">
-          👗
-        </span>
-
-        <h3>
-          Dress code
-        </h3>
-
-        <p>
-          anos 2000: venha no seu
-          melhor look Y2K
-        </p>
-
-        <span class="maps-hint">
-          ↳ toque pra ver a inspiração
-        </span>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =========================
-       MODAL
-  ========================= -->
 
   <div
-    class="modal-overlay"
-    id="modalOverlay"
+    class="clock"
+    id="clock"
   >
 
-    <div class="modal-box">
+    <div>
 
-      <button
-        class="modal-close"
-        id="modalClose"
-        aria-label="fechar"
+      <span
+        class="num"
+        id="dd"
       >
-        ✕
-      </button>
+        00
+      </span>
 
-      <div id="modalContent"></div>
+      <span class="lbl">
+        dias
+      </span>
+
+    </div>
+
+
+    <div>
+
+      <span
+        class="num"
+        id="hh"
+      >
+        00
+      </span>
+
+      <span class="lbl">
+        horas
+      </span>
+
+    </div>
+
+
+    <div>
+
+      <span
+        class="num"
+        id="mm"
+      >
+        00
+      </span>
+
+      <span class="lbl">
+        min
+      </span>
+
+    </div>
+
+
+    <div>
+
+      <span
+        class="num"
+        id="ss"
+      >
+        00
+      </span>
+
+      <span class="lbl">
+        seg
+      </span>
 
     </div>
 
   </div>
 
-  <!-- =========================
-       RSVP
-  ========================= -->
+</section>
 
-  <section class="rsvp">
 
-    <div class="rsvp-box">
+<!-- =====================================================
+     DETALHES
+===================================================== -->
+
+<section class="details">
+
+  <div class="section-title">
+    os detalhes do pedido
+  </div>
+
+
+  <div class="desktop">
+
+
+    <!-- =========================
+         DATA
+    ========================== -->
+
+    <div
+      class="icon-card"
+      id="dateCard"
+    >
+
+      <span class="icon-emoji">
+        🗓️
+      </span>
+
+      <h3>
+        05 de setembro
+      </h3>
 
       <p>
-        confirma que esse desejo continua —
-        vem comemorar com a gente!
+        sábado, a partir das 19h
+        (horário de MS)
       </p>
 
-      <a
-        class="rsvp-btn"
-        href="https://wa.me/5567999749630?text=Oi!%20Confirmo%20presença%20na%20festa%20de%2030%20anos!"
-        target="_blank"
-        rel="noopener"
+      <button
+        class="add-cal-btn"
+        id="addCalBtn"
+        type="button"
       >
-        CONFIRMAR NO WHATSAPP
-      </a>
+        + adicionar à agenda
+      </button>
 
     </div>
 
-  </section>
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+    <!-- =========================
+         LOCAL
+    ========================== -->
 
-  <footer>
+    <div
+      class="icon-card clickable"
+      id="locationCard"
+      role="button"
+      tabindex="0"
+    >
 
-    feito com
-    <span class="heart">✦</span>
-    por quem nunca deixou de fazer
-    pedidos de aniversário
+      <span class="icon-emoji">
+        📍
+      </span>
 
-  </footer>
+      <h3>
+        Dom Pedro II
+      </h3>
+
+      <p>
+        Popular Nova, 3777 —
+        Corumbá, MS
+      </p>
+
+      <span class="maps-hint">
+        ↳ toque pra abrir no mapa
+      </span>
+
+    </div>
+
+
+    <!-- =========================
+         DRESS CODE
+    ========================== -->
+
+    <div
+      class="icon-card clickable"
+      id="dressCard"
+      role="button"
+      tabindex="0"
+    >
+
+      <span class="icon-emoji">
+        👗
+      </span>
+
+      <h3>
+        Dress code
+      </h3>
+
+      <p>
+        anos 2000: venha no seu
+        melhor look Y2K
+      </p>
+
+      <span class="maps-hint">
+        ↳ toque pra ver os looks
+      </span>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+  class="modal-overlay"
+  id="modalOverlay"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      id="modalClose"
+      aria-label="fechar"
+    >
+      ✕
+    </button>
+
+    <div id="modalContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     RSVP
+===================================================== -->
+
+<section class="rsvp">
+
+  <div class="rsvp-box">
+
+    <p>
+      confirma que esse desejo continua —
+      vem comemorar com a gente!
+    </p>
+
+    <a
+      class="rsvp-btn"
+      href="https://wa.me/5567999749630?text=Oi!%20Confirmo%20presença%20na%20festa%20de%2030%20anos!"
+      target="_blank"
+      rel="noopener"
+    >
+      CONFIRMAR NO WHATSAPP
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  feito com
+
+  <span class="heart">
+    ✦
+  </span>
+
+  por quem nunca deixou de fazer
+  pedidos de aniversário
+
+</footer>
+
 
 </main>
 
+
 <script>
 
-  /* =========================
-     POEIRA DE DESEJO
-  ========================= */
 
-  const dustWrap = document.getElementById('dust');
+/* =====================================================
+   POEIRA DO FUNDO
+===================================================== */
 
-  const dustChars = [
-    '✦',
-    '✧',
-    '⋆',
-    '·'
-  ];
+const dustWrap =
+  document.getElementById('dust');
 
-  for(let i = 0; i < 70; i++){
+const dustChars = [
+  '✦',
+  '✧',
+  '⋆',
+  '·'
+];
 
-    const s = document.createElement('div');
+for(
+  let i = 0;
+  i < 70;
+  i++
+){
 
-    s.className = 'speck';
+  const s =
+    document.createElement('div');
 
-    s.textContent =
-      dustChars[
-        Math.floor(
-          Math.random() * dustChars.length
-        )
-      ];
+  s.className =
+    'speck';
 
-    s.style.left =
-      Math.random() * 100 + 'vw';
+  s.textContent =
+    dustChars[
+      Math.floor(
+        Math.random() *
+        dustChars.length
+      )
+    ];
 
-    s.style.top =
-      Math.random() * 100 + 'vh';
+  s.style.left =
+    Math.random() *
+    100 +
+    'vw';
 
-    s.style.fontSize =
-      (10 + Math.random() * 20) + 'px';
+  s.style.top =
+    Math.random() *
+    100 +
+    'vh';
 
-    s.style.animationDelay =
-      (Math.random() * 3) + 's';
+  s.style.fontSize =
+    (
+      10 +
+      Math.random() * 20
+    ) +
+    'px';
 
-    dustWrap.appendChild(s);
+  s.style.animationDelay =
+    (
+      Math.random() * 3
+    ) +
+    's';
+
+  dustWrap.appendChild(s);
+
+}
+
+
+/* =====================================================
+   RASTRO DO CURSOR
+===================================================== */
+
+window.addEventListener(
+  'pointermove',
+  (e) => {
+
+    if(
+      Math.random() > 0.6
+    ){
+      return;
+    }
+
+    const dot =
+      document.createElement('div');
+
+    dot.className =
+      'sparkle';
+
+    dot.style.left =
+      e.clientX + 'px';
+
+    dot.style.top =
+      e.clientY + 'px';
+
+    document.body.appendChild(dot);
+
+    setTimeout(
+      () => dot.remove(),
+      800
+    );
+
   }
+);
 
 
-  /* =========================
-     RASTRO DO CURSOR
-  ========================= */
+/* =====================================================
+   SPLASH
+===================================================== */
 
-  window.addEventListener(
-    'pointermove',
-    (e) => {
+const splash =
+  document.getElementById(
+    'splash'
+  );
 
-      if(Math.random() > 0.6) return;
+document
+  .getElementById('enter-btn')
+  .addEventListener(
+    'click',
+    () => {
 
-      const dot =
-        document.createElement('div');
-
-      dot.className = 'sparkle';
-
-      dot.style.left =
-        e.clientX + 'px';
-
-      dot.style.top =
-        e.clientY + 'px';
-
-      document.body.appendChild(dot);
-
-      setTimeout(
-        () => dot.remove(),
-        800
+      splash.classList.add(
+        'hidden'
       );
 
     }
   );
 
 
-  /* =========================
-     SPLASH
-  ========================= */
+setTimeout(
+  () =>
+    splash.classList.add(
+      'hidden'
+    ),
+  15000
+);
 
-  const splash =
-    document.getElementById('splash');
 
-  document
-    .getElementById('enter-btn')
-    .addEventListener(
-      'click',
-      () => {
-        splash.classList.add('hidden');
-      }
-    );
+/* =====================================================
+   DIÁRIO
+===================================================== */
 
-  setTimeout(
-    () => splash.classList.add('hidden'),
-    15000
+const diaryBody =
+  document.getElementById(
+    'diaryBody'
   );
 
 
-  /* =========================
-     DIÁRIO
-  ========================= */
+const diaryLines = [
 
-  const diaryBody =
-    document.getElementById('diaryBody');
+  "oi, eu sei que parece loucura...",
 
-  const diaryLines = [
+  "mas de repente, 30.",
 
-    "oi, eu sei que parece loucura...",
+  "dezessete anos sumiram numa piscada de olhos.",
 
-    "mas de repente, 30.",
+  "e hoje é dia de comemorar o pedido que deu certo.",
 
-    "dezessete anos sumiram numa piscada de olhos.",
+  "e claro... voltar pros anos 2000 por uma noite ✦",
 
-    "e hoje é dia de comemorar o pedido que deu certo.",
+  "role a página pra ver os detalhes e confirmar presença ✦"
 
-    "e claro... voltar pros anos 2000 por uma noite ✦",
+];
 
-    "role a página pra ver os detalhes e confirmar presença ✦"
 
-  ];
+let li = 0;
 
-  let li = 0;
 
-  function showDiaryLine(){
+function showDiaryLine(){
 
-    if(li >= diaryLines.length)
-      return;
-
-    const line =
-      document.createElement('div');
-
-    line.className = 'line';
-
-    line.textContent =
-      diaryLines[li];
-
-    diaryBody.appendChild(line);
-
-    li++;
-
-    setTimeout(
-      showDiaryLine,
-      900
-    );
+  if(
+    li >= diaryLines.length
+  ){
+    return;
   }
 
-  const diaryObserver =
-    new IntersectionObserver(
-      (entries) => {
+  const line =
+    document.createElement('div');
 
-        entries.forEach(
-          (entry) => {
+  line.className =
+    'line';
 
-            if(entry.isIntersecting){
+  line.textContent =
+    diaryLines[li];
 
-              showDiaryLine();
+  diaryBody.appendChild(
+    line
+  );
 
-              diaryObserver.disconnect();
+  li++;
 
-            }
+  setTimeout(
+    showDiaryLine,
+    900
+  );
+
+}
+
+
+const diaryObserver =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach(
+        (entry) => {
+
+          if(
+            entry.isIntersecting
+          ){
+
+            showDiaryLine();
+
+            diaryObserver.disconnect();
 
           }
-        );
 
-      },
-      {
-        threshold:.3
-      }
-    );
-
-  diaryObserver.observe(diaryBody);
-
-
-  /* =========================
-     LOCALIZAÇÃO
-  ========================= */
-
-  const enderecoFesta =
-    "Dom Pedro II, Popular Nova 3777, Corumbá, MS";
-
-  document
-    .getElementById('locationCard')
-    .addEventListener(
-      'click',
-      abrirMapa
-    );
-
-  document
-    .getElementById('locationCard')
-    .addEventListener(
-      'keypress',
-      (e) => {
-
-        if(
-          e.key === 'Enter' ||
-          e.key === ' '
-        ){
-          abrirMapa();
         }
+      );
+
+    },
+    {
+      threshold:.3
+    }
+  );
+
+
+diaryObserver.observe(
+  diaryBody
+);
+
+
+/* =====================================================
+   LOCALIZAÇÃO
+===================================================== */
+
+const enderecoFesta =
+  "Dom Pedro II, Popular Nova 3777, Corumbá, MS";
+
+
+document
+  .getElementById('locationCard')
+  .addEventListener(
+    'click',
+    abrirMapa
+  );
+
+
+document
+  .getElementById('locationCard')
+  .addEventListener(
+    'keypress',
+    (e) => {
+
+      if(
+        e.key === 'Enter' ||
+        e.key === ' '
+      ){
+
+        abrirMapa();
 
       }
+
+    }
+  );
+
+
+function abrirMapa(){
+
+  const query =
+    encodeURIComponent(
+      enderecoFesta
     );
 
-  function abrirMapa(){
 
-    const query =
-      encodeURIComponent(
-        enderecoFesta
-      );
+  const isIOS =
+    /iPad|iPhone|iPod/.test(
+      navigator.userAgent
+    ) ||
+    (
+      navigator.platform ===
+      'MacIntel' &&
+      navigator.maxTouchPoints > 1
+    );
 
-    const isIOS =
-      /iPad|iPhone|iPod/.test(
-        navigator.userAgent
-      ) ||
-      (
-        navigator.platform === 'MacIntel' &&
-        navigator.maxTouchPoints > 1
-      );
 
-    const url = isIOS
+  const url =
+    isIOS
 
       ? `https://maps.apple.com/?q=${query}`
 
       : `https://www.google.com/maps/search/?api=1&query=${query}`;
 
-    window.open(
-      url,
-      '_blank',
-      'noopener'
-    );
 
-  }
+  window.open(
+    url,
+    '_blank',
+    'noopener'
+  );
+
+}
 
 
-  /* =========================
-     CONTAGEM REGRESSIVA
-     
-     05/09/2026 às 19h
-     Horário de MS
-  ========================= */
+/* =====================================================
+   DATA DA FESTA
+=====================================================
 
-  const partyDate =
-    new Date(
-      2026,
-      8,
-      5,
-      19,
-      0,
-      0
-    );
+   05/09/2026
+   19:00
+   Horário de MS (UTC-4)
 
-  function updateClock(){
+   O "-04:00" garante que a contagem
+   não dependa do fuso configurado
+   no celular/computador.
 
-    const now =
-      new Date();
+===================================================== */
 
-    let diff =
-      partyDate - now;
-
-    if(diff < 0)
-      diff = 0;
-
-    const dd =
-      Math.floor(
-        diff /
-        (1000 * 60 * 60 * 24)
-      );
-
-    const hh =
-      Math.floor(
-        (
-          diff /
-          (1000 * 60 * 60)
-        ) % 24
-      );
-
-    const mm =
-      Math.floor(
-        (
-          diff /
-          (1000 * 60)
-        ) % 60
-      );
-
-    const ss =
-      Math.floor(
-        (
-          diff / 1000
-        ) % 60
-      );
-
-    document
-      .getElementById('dd')
-      .textContent =
-      String(dd).padStart(2,'0');
-
-    document
-      .getElementById('hh')
-      .textContent =
-      String(hh).padStart(2,'0');
-
-    document
-      .getElementById('mm')
-      .textContent =
-      String(mm).padStart(2,'0');
-
-    document
-      .getElementById('ss')
-      .textContent =
-      String(ss).padStart(2,'0');
-
-  }
-
-  updateClock();
-
-  setInterval(
-    updateClock,
-    1000
+const partyDate =
+  new Date(
+    "2026-09-05T19:00:00-04:00"
   );
 
 
-  /* =========================
-     MODAL
-  ========================= */
+/* =====================================================
+   CONTAGEM REGRESSIVA
+===================================================== */
 
-  const modalOverlay =
-    document.getElementById(
-      'modalOverlay'
+function updateClock(){
+
+  const now =
+    new Date();
+
+  let diff =
+    partyDate - now;
+
+
+  if(
+    diff < 0
+  ){
+    diff = 0;
+  }
+
+
+  const dd =
+    Math.floor(
+      diff /
+      (
+        1000 *
+        60 *
+        60 *
+        24
+      )
     );
 
-  const modalContent =
-    document.getElementById(
-      'modalContent'
+
+  const hh =
+    Math.floor(
+      (
+        diff /
+        (
+          1000 *
+          60 *
+          60
+        )
+      ) % 24
     );
+
+
+  const mm =
+    Math.floor(
+      (
+        diff /
+        (
+          1000 *
+          60
+        )
+      ) % 60
+    );
+
+
+  const ss =
+    Math.floor(
+      (
+        diff /
+        1000
+      ) % 60
+    );
+
 
   document
-    .getElementById('modalClose')
-    .addEventListener(
-      'click',
-      closeModal
+    .getElementById('dd')
+    .textContent =
+    String(dd)
+      .padStart(2,'0');
+
+
+  document
+    .getElementById('hh')
+    .textContent =
+    String(hh)
+      .padStart(2,'0');
+
+
+  document
+    .getElementById('mm')
+    .textContent =
+    String(mm)
+      .padStart(2,'0');
+
+
+  document
+    .getElementById('ss')
+    .textContent =
+    String(ss)
+      .padStart(2,'0');
+
+}
+
+
+updateClock();
+
+
+setInterval(
+  updateClock,
+  1000
+);
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+const modalOverlay =
+  document.getElementById(
+    'modalOverlay'
+  );
+
+
+const modalContent =
+  document.getElementById(
+    'modalContent'
+  );
+
+
+document
+  .getElementById('modalClose')
+  .addEventListener(
+    'click',
+    closeModal
+  );
+
+
+modalOverlay.addEventListener(
+  'click',
+  (e) => {
+
+    if(
+      e.target ===
+      modalOverlay
+    ){
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+function openModal(html){
+
+  modalContent.innerHTML =
+    html;
+
+  modalOverlay.classList.add(
+    'open'
+  );
+
+}
+
+
+function closeModal(){
+
+  modalOverlay.classList.remove(
+    'open'
+  );
+
+}
+
+
+/* =====================================================
+   GOOGLE AGENDA / .ICS
+===================================================== */
+
+const partyDurationHours =
+  4;
+
+
+function pad(n){
+
+  return String(n)
+    .padStart(2,'0');
+
+}
+
+
+/*
+   Converte para formato UTC
+   usado pelo Google Agenda
+   e pelo arquivo ICS.
+*/
+
+function toICSDate(d){
+
+  return (
+
+    d.getUTCFullYear() +
+
+    pad(
+      d.getUTCMonth() + 1
+    ) +
+
+    pad(
+      d.getUTCDate()
+    ) +
+
+    'T' +
+
+    pad(
+      d.getUTCHours()
+    ) +
+
+    pad(
+      d.getUTCMinutes()
+    ) +
+
+    '00Z'
+
+  );
+
+}
+
+
+function toGCalDate(d){
+
+  return toICSDate(d);
+
+}
+
+
+document
+  .getElementById('addCalBtn')
+  .addEventListener(
+    'click',
+    openCalendarModal
+  );
+
+
+function openCalendarModal(){
+
+  const start =
+    partyDate;
+
+
+  const end =
+    new Date(
+      partyDate.getTime() +
+      partyDurationHours *
+      60 *
+      60 *
+      1000
     );
 
-  modalOverlay.addEventListener(
+
+  const title =
+    encodeURIComponent(
+      'festa de 30 anos — Amandha'
+    );
+
+
+  const details =
+    encodeURIComponent(
+      'o pedido virou realidade! vem comemorar os 30 anos da Amandha.'
+    );
+
+
+  const location =
+    encodeURIComponent(
+      'Dom Pedro II, Popular Nova 3777, Corumbá, MS'
+    );
+
+
+  const gcalUrl =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${toGCalDate(start)}/${toGCalDate(end)}&details=${details}&location=${location}`;
+
+
+  openModal(`
+
+    <div class="modal-title">
+      salvar na agenda
+    </div>
+
+    <p class="modal-sub">
+      não esquece o dia do pedido ✦
+    </p>
+
+    <a
+      class="modal-btn"
+      href="${gcalUrl}"
+      target="_blank"
+      rel="noopener"
+    >
+
+      <span class="emoji">
+        📅
+      </span>
+
+      adicionar no Google Agenda
+
+    </a>
+
+
+    <button
+      class="modal-btn"
+      id="icsBtn"
+      type="button"
+    >
+
+      <span class="emoji">
+        ⬇️
+      </span>
+
+      baixar arquivo .ics
+      (iPhone/Outlook)
+
+    </button>
+
+  `);
+
+
+  document
+    .getElementById('icsBtn')
+    .addEventListener(
+      'click',
+      () => {
+
+
+        const ics = [
+
+          'BEGIN:VCALENDAR',
+
+          'VERSION:2.0',
+
+          'PRODID:-//festa30//PT-BR',
+
+          'CALSCALE:GREGORIAN',
+
+          'BEGIN:VEVENT',
+
+          'UID:' +
+          Date.now() +
+          '@festa30',
+
+          'SUMMARY:festa de 30 anos — Amandha',
+
+          'DTSTART:' +
+          toICSDate(start),
+
+          'DTEND:' +
+          toICSDate(end),
+
+          'LOCATION:Dom Pedro II, Popular Nova 3777, Corumbá, MS',
+
+          'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos da Amandha.',
+
+          'END:VEVENT',
+
+          'END:VCALENDAR'
+
+        ].join('\r\n');
+
+
+        const isIOSDevice =
+          /iPad|iPhone|iPod/.test(
+            navigator.userAgent
+          ) ||
+          (
+            navigator.platform ===
+            'MacIntel' &&
+            navigator.maxTouchPoints > 1
+          );
+
+
+        const blob =
+          new Blob(
+            [ics],
+            {
+              type:
+                'text/calendar'
+            }
+          );
+
+
+        const blobUrl =
+          URL.createObjectURL(
+            blob
+          );
+
+
+        if(
+          isIOSDevice
+        ){
+
+          window.open(
+            blobUrl,
+            '_blank'
+          );
+
+        }else{
+
+          const link =
+            document.createElement(
+              'a'
+            );
+
+          link.href =
+            blobUrl;
+
+          link.download =
+            'festa-de-30-anos.ics';
+
+          document.body.appendChild(
+            link
+          );
+
+          link.click();
+
+          link.remove();
+
+        }
+
+
+        setTimeout(
+          () =>
+            URL.revokeObjectURL(
+              blobUrl
+            ),
+          10000
+        );
+
+      }
+    );
+
+}
+
+
+/* =====================================================
+   DRESS CODE
+===================================================== */
+
+document
+  .getElementById('dressCard')
+  .addEventListener(
     'click',
+    openLookModal
+  );
+
+
+document
+  .getElementById('dressCard')
+  .addEventListener(
+    'keypress',
     (e) => {
 
       if(
-        e.target === modalOverlay
+        e.key === 'Enter' ||
+        e.key === ' '
       ){
-        closeModal();
+
+        openLookModal();
+
       }
 
     }
   );
 
-  function openModal(html){
 
-    modalContent.innerHTML =
-      html;
+/* =====================================================
+   MODAL DE LOOKS
+===================================================== */
 
-    modalOverlay.classList.add(
-      'open'
-    );
+function openLookModal(){
 
-  }
+  openModal(`
 
-  function closeModal(){
+    <div class="modal-title">
+      looks anos 2000 ✦
+    </div>
 
-    modalOverlay.classList.remove(
-      'open'
-    );
 
-  }
+    <p class="modal-sub">
 
+      O dress code é:
+      <strong>volte no tempo!</strong>
 
-  /* =========================
-     ADICIONAR À AGENDA
-  ========================= */
+      Venha com seu melhor look
+      inspirado nos anos 2000/Y2K.
 
-  const partyDurationHours = 4;
+    </p>
 
-  function pad(n){
-    return String(n).padStart(2,'0');
-  }
 
-  function toICSDate(d){
+    <!-- =====================
+         FEMININO
+    ====================== -->
 
-    return (
-      d.getUTCFullYear() +
+    <div style="
+      background:rgba(240,168,189,.14);
+      border:1px solid rgba(240,168,189,.45);
+      border-radius:14px;
+      padding:20px 18px;
+      margin-bottom:16px;
+    ">
 
-      pad(
-        d.getUTCMonth() + 1
-      ) +
 
-      pad(
-        d.getUTCDate()
-      ) +
-
-      'T' +
-
-      pad(
-        d.getUTCHours()
-      ) +
-
-      pad(
-        d.getUTCMinutes()
-      ) +
-
-      '00Z'
-    );
-
-  }
-
-  function toGCalDate(d){
-    return toICSDate(d);
-  }
-
-  document
-    .getElementById('addCalBtn')
-    .addEventListener(
-      'click',
-      openCalendarModal
-    );
-
-  function openCalendarModal(){
-
-    const start =
-      partyDate;
-
-    const end =
-      new Date(
-        partyDate.getTime() +
-        partyDurationHours *
-        60 *
-        60 *
-        1000
-      );
-
-    const title =
-      encodeURIComponent(
-        'festa de 30 anos — Amandha'
-      );
-
-    const details =
-      encodeURIComponent(
-        'o pedido virou realidade! vem comemorar os 30 anos da Amandha.'
-      );
-
-    const location =
-      encodeURIComponent(
-        'Dom Pedro II, Popular Nova 3777, Corumbá, MS'
-      );
-
-    const gcalUrl =
-      `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${toGCalDate(start)}/${toGCalDate(end)}&details=${details}&location=${location}`;
-
-    openModal(`
-
-      <div class="modal-title">
-        salvar na agenda
-      </div>
-
-      <p class="modal-sub">
-        não esquece o dia do pedido ✦
-      </p>
-
-      <a
-        class="modal-btn"
-        href="${gcalUrl}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <span class="emoji">
-          📅
-        </span>
-
-        adicionar no Google Agenda
-
-      </a>
-
-      <button
-        class="modal-btn"
-        id="icsBtn"
-        type="button"
-      >
-
-        <span class="emoji">
-          ⬇️
-        </span>
-
-        baixar arquivo .ics
-        (iPhone/Outlook)
-
-      </button>
-
-    `);
-
-    document
-      .getElementById('icsBtn')
-      .addEventListener(
-        'click',
-        () => {
-
-          const ics = [
-
-            'BEGIN:VCALENDAR',
-
-            'VERSION:2.0',
-
-            'PRODID:-//festa30//PT-BR',
-
-            'CALSCALE:GREGORIAN',
-
-            'BEGIN:VEVENT',
-
-            'UID:' +
-            Date.now() +
-            '@festa30',
-
-            'SUMMARY:festa de 30 anos — Amandha',
-
-            'DTSTART:' +
-            toICSDate(start),
-
-            'DTEND:' +
-            toICSDate(end),
-
-            'LOCATION:Dom Pedro II, Popular Nova 3777, Corumbá, MS',
-
-            'DESCRIPTION:o pedido virou realidade! vem comemorar os 30 anos da Amandha.',
-
-            'END:VEVENT',
-
-            'END:VCALENDAR'
-
-          ].join('\r\n');
-
-          const isIOSDevice =
-            /iPad|iPhone|iPod/.test(
-              navigator.userAgent
-            ) ||
-            (
-              navigator.platform === 'MacIntel' &&
-              navigator.maxTouchPoints > 1
-            );
-
-          const blob =
-            new Blob(
-              [ics],
-              {
-                type:'text/calendar'
-              }
-            );
-
-          const blobUrl =
-            URL.createObjectURL(
-              blob
-            );
-
-          if(isIOSDevice){
-
-            window.open(
-              blobUrl,
-              '_blank'
-            );
-
-          }else{
-
-            const link =
-              document.createElement('a');
-
-            link.href =
-              blobUrl;
-
-            link.download =
-              'festa-de-30-anos.ics';
-
-            document.body.appendChild(
-              link
-            );
-
-            link.click();
-
-            link.remove();
-
-          }
-
-          setTimeout(
-            () =>
-              URL.revokeObjectURL(
-                blobUrl
-              ),
-            10000
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================
-     DRESS CODE ANOS 2000
-  ========================= */
-
-  document
-    .getElementById('dressCard')
-    .addEventListener(
-      'click',
-      openLookModal
-    );
-
-  document
-    .getElementById('dressCard')
-    .addEventListener(
-      'keypress',
-      (e) => {
-
-        if(
-          e.key === 'Enter' ||
-          e.key === ' '
-        ){
-          openLookModal();
-        }
-
-      }
-    );
-
-  function openLookModal(){
-
-    openModal(`
-
-      <div class="modal-title">
-        anos 2000 ✦
-      </div>
-
-      <p class="modal-sub">
-        o dress code é simples:
-        volte no tempo e venha no
-        seu melhor estilo Y2K!
-      </p>
-
-      <div style="
-        background:rgba(240,168,189,.14);
-        border:1px solid rgba(141,118,179,.25);
-        border-radius:14px;
-        padding:20px 18px;
-        margin-top:10px;
+      <p style="
+        font-family:var(--font-marker);
+        font-size:25px;
+        color:var(--blush);
+        margin:0 0 14px;
       ">
 
-        <p style="
-          font-family:var(--font-marker);
-          font-size:23px;
-          color:var(--plum);
-          margin:0 0 14px;
-        ">
-          ✦ inspiração anos 2000
-        </p>
+        ✦ feminino
 
-        <p style="
-          font-family:var(--font-ui);
-          font-size:17px;
-          line-height:1.7;
-          color:var(--ink);
-          margin:0;
-        ">
+      </p>
 
-          Pense nos looks que marcaram
-          os anos 2000:
 
-          <br><br>
+      <p style="
+        font-family:var(--font-ui);
+        font-size:16px;
+        line-height:1.75;
+        color:var(--ink);
+        margin:0;
+      ">
 
-          calça de cintura baixa,
-          baby tee, cropped, jeans,
-          brilho, óculos estilosos,
-          bolsas pequenas, acessórios
-          chamativos, tênis, salto e
-          aquele toque bem Y2K.
+        💗 <strong>Baby tee</strong> e cropped
 
-        </p>
+        <br>
 
-        <p style="
-          font-family:var(--font-marker);
-          font-size:21px;
-          color:var(--blush);
-          margin:18px 0 0;
-        ">
+        💗 <strong>Calça de cintura baixa</strong>
 
-          ✦ vale trazer sua própria
-          versão dos anos 2000!
+        <br>
 
-        </p>
+        💗 Jeans e minissaia
 
-      </div>
+        <br>
 
-    `);
+        💗 Vestidos justinhos
 
-  }
+        <br>
+
+        💗 Brilho e peças metalizadas
+
+        <br>
+
+        💗 Bolsinhas pequenas
+
+        <br>
+
+        💗 Óculos estilosos
+
+        <br>
+
+        💗 Acessórios chamativos
+
+        <br>
+
+        💗 Salto ou tênis
+
+      </p>
+
+    </div>
+
+
+    <!-- =====================
+         MASCULINO
+    ====================== -->
+
+    <div style="
+      background:rgba(141,118,179,.10);
+      border:1px solid rgba(141,118,179,.35);
+      border-radius:14px;
+      padding:20px 18px;
+      margin-bottom:16px;
+    ">
+
+
+      <p style="
+        font-family:var(--font-marker);
+        font-size:25px;
+        color:var(--plum);
+        margin:0 0 14px;
+      ">
+
+        ✦ masculino
+
+      </p>
+
+
+      <p style="
+        font-family:var(--font-ui);
+        font-size:16px;
+        line-height:1.75;
+        color:var(--ink);
+        margin:0;
+      ">
+
+        💜 <strong>Camiseta oversized</strong>
+
+        <br>
+
+        💜 Camiseta estampada
+
+        <br>
+
+        💜 Calça jeans larga ou cargo
+
+        <br>
+
+        💜 Calça de cintura baixa
+
+        <br>
+
+        💜 Jaqueta jeans ou de couro
+
+        <br>
+
+        💜 Correntes e acessórios
+
+        <br>
+
+        💜 Boné ou bandana
+
+        <br>
+
+        💜 Óculos estilosos
+
+        <br>
+
+        💜 Tênis
+
+      </p>
+
+    </div>
+
+
+    <!-- =====================
+         FINAL
+    ====================== -->
+
+    <div style="
+      background:rgba(227,172,78,.12);
+      border:1px solid rgba(227,172,78,.35);
+      border-radius:14px;
+      padding:18px;
+      text-align:center;
+    ">
+
+
+      <p style="
+        font-family:var(--font-marker);
+        font-size:23px;
+        color:var(--plum);
+        margin:0;
+      ">
+
+        ✦ quanto mais anos 2000,
+        melhor!
+
+      </p>
+
+
+      <p style="
+        font-family:var(--font-ui);
+        font-size:15px;
+        line-height:1.6;
+        color:var(--ink);
+        margin:10px 0 0;
+      ">
+
+        Não precisa seguir exatamente
+        as sugestões.
+
+        A ideia é se divertir,
+        entrar no clima e criar
+        seu próprio look dos anos 2000!
+
+      </p>
+
+    </div>
+
+  `);
+
+}
 
 </script>
 
